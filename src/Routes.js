@@ -5,6 +5,7 @@ import { Center } from "./components/Center";
 import { AuthContext } from "./providers/AuthProvider";
 import { BottomTabs } from "./Tabs";
 import { AuthStack } from "./stack/AuthStack";
+import { DrawerNavigator } from "./Drawer";
 
 export const Routes = () => {
   const { user, login } = useContext(AuthContext);
@@ -35,7 +36,7 @@ export const Routes = () => {
   }
   return (
     <NavigationContainer>
-      {user ? <BottomTabs /> : <AuthStack />}
+      {user ? <DrawerNavigator /> : <AuthStack />}
     </NavigationContainer>
   );
 };

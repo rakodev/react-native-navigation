@@ -18,3 +18,6 @@
 
 > React Navigation v5 Tutorial
 > https://www.youtube.com/watch?v=Hln37dE19bs
+
+> React Navigation v5 - Stack, Tabs, Drawer, Authentication
+> https://www.youtube.com/watch?v=nQVCkqvU1uE

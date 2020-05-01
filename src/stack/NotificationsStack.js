@@ -1,32 +1,30 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import React, { useContext } from "react";
+import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 import { Center } from "./../components/Center";
-import { AuthContext } from "../providers/AuthProvider";
 
 const Stack = createStackNavigator();
 
-function Feed() {
+function Notifications({ navigation }) {
   return (
     <Center>
-      <Text>Feed</Text>
+      <Text>Notifications</Text>
     </Center>
   );
 }
 
-export const HomeStack = () => {
-  const { logout } = useContext(AuthContext);
+export const NotificationsStack = ({ navigation }) => {
   return (
-    <Stack.Navigator initialRouteName="Login">
+    <Stack.Navigator initialRouteName="Notifications">
       <Stack.Screen
-        name="Feed"
-        component={Feed}
+        name="Notifications"
+        component={Notifications}
         options={{
           headerTitle: null,
-          headerRight: () => {
+          headerLeft: () => {
             return (
-              <TouchableOpacity onPress={() => logout()}>
-                <Text>Logout</Text>
+              <TouchableOpacity onPress={() => navigation.openDrawer()}>
+                <Text>Menu</Text>
               </TouchableOpacity>
             );
           }

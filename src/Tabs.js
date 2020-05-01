@@ -1,30 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Center } from "./components/Center";
-import { Text, Button } from "react-native";
-import { AuthContext } from "./providers/AuthProvider";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { HomeStack } from "./stack/HomeStack";
+import { FeedStack } from "./stack/FeedStack";
+import { MyEventsStack } from "./stack/MyEventsStack";
+import { FavoritesStack } from "./stack/FavoriteStack";
 
 const Tabs = createBottomTabNavigator();
 
-function MyEventList() {
-  return (
-    <Center>
-      <Text>My Event List</Text>
-    </Center>
-  );
-}
-
-function Favorite() {
-  return (
-    <Center>
-      <Text>My Favorite List</Text>
-    </Center>
-  );
-}
-
-export const BottomTabs = () => {
+export const BottomTabsHome = ({ navigation }) => {
   return (
     <Tabs.Navigator
       screenOptions={({ route }) => ({
@@ -48,9 +31,27 @@ export const BottomTabs = () => {
         inactiveTintColor: "gray"
       }}
     >
-      <Tabs.Screen name="Home" component={HomeStack} />
-      <Tabs.Screen name="MyEventList" component={MyEventList} />
-      <Tabs.Screen name="Favorite" component={Favorite} />
+      <Tabs.Screen
+        name="Home"
+        component={FeedStack}
+        options={{
+          title: ""
+        }}
+      />
+      <Tabs.Screen
+        name="MyEventList"
+        component={MyEventsStack}
+        options={{
+          title: ""
+        }}
+      />
+      <Tabs.Screen
+        name="Favorite"
+        component={FavoritesStack}
+        options={{
+          title: ""
+        }}
+      />
     </Tabs.Navigator>
   );
 };
